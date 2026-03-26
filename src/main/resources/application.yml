@@ -1,0 +1,31 @@
+# yml 파일의 규칙 - 처음에 2칸을 띄웠다면 그 다음도 쭉 2칸을 띄워줘야 한다.
+# 어길 시 에러 발생.(space가 아니라 tab으로 해도 에러 발생)
+
+# 콘솔 로그 레벨 변경
+logging:
+  level:
+    root: debug
+
+# spring.application.name=hello-spring #properties의 설정방식
+# '.'은 ':', '='은 ': '로 표현됨.
+spring:
+  application:
+    name: hello-spring
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: SPRING_BOOT
+    password: 1234
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+# mybatis 연동 설정
+mybatis:
+  # mybatis 설정 파일 위치 지정.
+  config-location: classpath:mybatis-config.xml
+  # mapper 파일들의 위치 지정.
+  mapper-locations: classpath:com/ktdsuniversity/edu/**/mapper/*Mapper.xml
+  # 공통 위치까지 내려가서 다른 위치를 **로 전부 가져오게 하고,
+  # Mapper앞부분도 다르니 *로 전체를 가져오게한다.
