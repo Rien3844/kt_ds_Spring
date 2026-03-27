@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
     <div>조회수: ${searchResult[0].viewCnt}</div>
     <div>작성일: ${searchResult[0].crtDt}</div>
     <div>수정일: ${searchResult[0].mdfyDt}</div>
-    <div>첨부파일 이름</div>: ${searchResult[0].fileName}</div>
+    <div>첨부파일 이름: ${searchResult[0].fileName}</div>
     <div>첨부파일 이름: ${searchResult[0].originFileName}</div>
   </body>
 </html>
