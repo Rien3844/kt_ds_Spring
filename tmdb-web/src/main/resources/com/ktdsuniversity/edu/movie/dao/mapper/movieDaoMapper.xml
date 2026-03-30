@@ -26,6 +26,27 @@
             , BUDGET
             , PROFIT
          FROM MOVIE
+        ORDER BY MOVIE_ID ASC
+    </select>
+    
+        <select id="selectMovieById" 
+            resultType="com.ktdsuniversity.edu.movie.vo.MovieVO">
+       SELECT MOVIE_ID
+            , POSTER_URL
+            , TITLE
+            , MOVIE_RATING
+            , TO_CHAR(OPEN_DATE, 'YYYYMMDD HH24:MI:SS') AS OPEN_DATE
+            , OPEN_COUNTRY
+            , RUNNING_TIME
+            , INTRODUCE
+            , SYNOPSIS
+            , ORIGINAL_TITLE
+            , MOVIE_STATE
+            , LANGUAGE
+            , BUDGET
+            , PROFIT
+         FROM MOVIE
+        WHERE MOVIE_ID = #{articleId}
     </select>
     
     <insert id="insertNewMovie" parameterType="com.ktdsuniversity.edu.movie.vo.request.WriteVO">
