@@ -10,12 +10,12 @@ logging:
 # '.'은 ':', '='은 ': '로 표현됨.
 spring:
   application:
-    name: hello-spring
+    name: tmdb-web
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:XE
     driver-class-name: oracle.jdbc.driver.OracleDriver
     username: TMDB
-    password: tmdb1234
+    password: TMDB
   mvc:
     view:
       prefix: /WEB-INF/views/
