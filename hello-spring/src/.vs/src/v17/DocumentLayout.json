@@ -1,0 +1,213 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\com\\ktdsuniversity\\edu\\board\\dao\\mapper\\BoardDaoMapper.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\resources\\com\\ktdsuniversity\\edu\\board\\dao\\mapper\\BoardDaoMapper.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\com\\ktdsuniversity\\edu\\files\\dao\\mapper\\FilesDaoMapper.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\resources\\com\\ktdsuniversity\\edu\\files\\dao\\mapper\\FilesDaoMapper.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\list.jsp||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\webapp\\WEB-INF\\views\\board\\list.jsp||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\files\\utils\\MultipartFileHandler.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\java\\com\\ktdsuniversity\\edu\\files\\utils\\MultipartFileHandler.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\static\\js\\board.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\resources\\static\\js\\board.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\view.jsp||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\webapp\\WEB-INF\\views\\board\\view.jsp||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\update.jsp||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\webapp\\WEB-INF\\views\\board\\update.jsp||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\service\\BoardServiceImpl.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\java\\com\\ktdsuniversity\\edu\\board\\service\\BoardServiceImpl.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\write.jsp||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\webapp\\WEB-INF\\views\\board\\write.jsp||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\web\\BoardController.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\java\\com\\ktdsuniversity\\edu\\board\\web\\BoardController.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\vo\\BoardVO.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main\\java\\com\\ktdsuniversity\\edu\\board\\vo\\BoardVO.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 195,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "write.jsp",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\write.jsp",
+              "RelativeDocumentMoniker": "main\\webapp\\WEB-INF\\views\\board\\write.jsp",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\write.jsp",
+              "RelativeToolTip": "main\\webapp\\WEB-INF\\views\\board\\write.jsp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-01T17:06:46.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BoardController.java",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\web\\BoardController.java",
+              "RelativeDocumentMoniker": "main\\java\\com\\ktdsuniversity\\edu\\board\\web\\BoardController.java",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\web\\BoardController.java",
+              "RelativeToolTip": "main\\java\\com\\ktdsuniversity\\edu\\board\\web\\BoardController.java",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAAAFgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-01T17:06:33.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BoardVO.java",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\vo\\BoardVO.java",
+              "RelativeDocumentMoniker": "main\\java\\com\\ktdsuniversity\\edu\\board\\vo\\BoardVO.java",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\vo\\BoardVO.java",
+              "RelativeToolTip": "main\\java\\com\\ktdsuniversity\\edu\\board\\vo\\BoardVO.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-01T16:55:23.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "update.jsp",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\update.jsp",
+              "RelativeDocumentMoniker": "main\\webapp\\WEB-INF\\views\\board\\update.jsp",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\update.jsp",
+              "RelativeToolTip": "main\\webapp\\WEB-INF\\views\\board\\update.jsp",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAlwA8AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-01T16:54:03.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "list.jsp",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\list.jsp",
+              "RelativeDocumentMoniker": "main\\webapp\\WEB-INF\\views\\board\\list.jsp",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\list.jsp",
+              "RelativeToolTip": "main\\webapp\\WEB-INF\\views\\board\\list.jsp",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-01T16:39:46.5Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 205,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MultipartFileHandler.java",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\files\\utils\\MultipartFileHandler.java",
+              "RelativeDocumentMoniker": "main\\java\\com\\ktdsuniversity\\edu\\files\\utils\\MultipartFileHandler.java",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\files\\utils\\MultipartFileHandler.java",
+              "RelativeToolTip": "main\\java\\com\\ktdsuniversity\\edu\\files\\utils\\MultipartFileHandler.java",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAADsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-01T17:25:18.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "board.js",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\static\\js\\board.js",
+              "RelativeDocumentMoniker": "main\\resources\\static\\js\\board.js",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\static\\js\\board.js",
+              "RelativeToolTip": "main\\resources\\static\\js\\board.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-04-01T17:07:40.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FilesDaoMapper.xml",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\com\\ktdsuniversity\\edu\\files\\dao\\mapper\\FilesDaoMapper.xml",
+              "RelativeDocumentMoniker": "main\\resources\\com\\ktdsuniversity\\edu\\files\\dao\\mapper\\FilesDaoMapper.xml",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\com\\ktdsuniversity\\edu\\files\\dao\\mapper\\FilesDaoMapper.xml",
+              "RelativeToolTip": "main\\resources\\com\\ktdsuniversity\\edu\\files\\dao\\mapper\\FilesDaoMapper.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-04-01T16:17:10.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BoardDaoMapper.xml",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\com\\ktdsuniversity\\edu\\board\\dao\\mapper\\BoardDaoMapper.xml",
+              "RelativeDocumentMoniker": "main\\resources\\com\\ktdsuniversity\\edu\\board\\dao\\mapper\\BoardDaoMapper.xml",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\resources\\com\\ktdsuniversity\\edu\\board\\dao\\mapper\\BoardDaoMapper.xml",
+              "RelativeToolTip": "main\\resources\\com\\ktdsuniversity\\edu\\board\\dao\\mapper\\BoardDaoMapper.xml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAABoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-04-01T15:53:41.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "view.jsp",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\view.jsp",
+              "RelativeDocumentMoniker": "main\\webapp\\WEB-INF\\views\\board\\view.jsp",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\webapp\\WEB-INF\\views\\board\\view.jsp",
+              "RelativeToolTip": "main\\webapp\\WEB-INF\\views\\board\\view.jsp",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-01T16:51:04.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BoardServiceImpl.java",
+              "DocumentMoniker": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\service\\BoardServiceImpl.java",
+              "RelativeDocumentMoniker": "main\\java\\com\\ktdsuniversity\\edu\\board\\service\\BoardServiceImpl.java",
+              "ToolTip": "D:\\DevPrograms\\sts_workspace\\hello-spring\\src\\main\\java\\com\\ktdsuniversity\\edu\\board\\service\\BoardServiceImpl.java",
+              "RelativeToolTip": "main\\java\\com\\ktdsuniversity\\edu\\board\\service\\BoardServiceImpl.java",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAAAEAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-01T17:07:50.81Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

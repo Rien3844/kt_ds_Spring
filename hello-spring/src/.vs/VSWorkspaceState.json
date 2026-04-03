@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\main",
+    "\\main\\java",
+    "\\main\\java\\com",
+    "\\main\\java\\com\\ktdsuniversity",
+    "\\main\\java\\com\\ktdsuniversity\\edu",
+    "\\main\\java\\com\\ktdsuniversity\\edu\\board",
+    "\\main\\resources",
+    "\\main\\resources\\static",
+    "\\main\\resources\\static\\js"
+  ],
+  "SelectedNode": "\\main\\resources\\com\\ktdsuniversity\\edu\\board\\dao\\mapper\\BoardDaoMapper.xml",
+  "PreviewInSolutionExplorer": false
+}
