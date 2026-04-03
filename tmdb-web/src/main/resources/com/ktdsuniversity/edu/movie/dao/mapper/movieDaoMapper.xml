@@ -12,7 +12,9 @@
     <select id="selectMovieList" 
             resultType="com.ktdsuniversity.edu.movie.vo.MovieVO">
        SELECT MOVIE_ID
-            , POSTER_URL
+            , (SELECT P.POSTER_PATH 
+                 FROM POSTER P 
+                WHERE P.POSTER_GROUP_ID = #{movieId}) AS POSTER_URL
             , TITLE
             , MOVIE_RATING
             , TO_CHAR(OPEN_DATE, 'YYYYMMDD HH24:MI:SS') AS OPEN_DATE
@@ -29,13 +31,21 @@
         ORDER BY MOVIE_ID ASC
     </select>
     
-        <select id="selectMovieById" 
-            resultType="com.ktdsuniversity.edu.movie.vo.MovieVO">
-       SELECT MOVIE_ID
+
+    
+    <insert id="insertNewMovie" parameterType="com.ktdsuniversity.edu.movie.vo.request.WriteVO">
+        <selectKey order="BEFORE"
+                   resultType="string"
+                   keyProperty="id">
+            SELECT 'MV-' || TO_CHAR(SYSDATE, 'YYYYMMDD-') || LPAD(SEQ_MOVIE_PK.NEXTVAL, 6, '0')
+              FROM DUAL        
+        </selectKey>
+        INSERT INTO MOVIE 
+            ( MOVIE_ID
             , POSTER_URL
             , TITLE
             , MOVIE_RATING
-            , TO_CHAR(OPEN_DATE, 'YYYYMMDD HH24:MI:SS') AS OPEN_DATE
+            , OPEN_DATE
             , OPEN_COUNTRY
             , RUNNING_TIME
             , INTRODUCE
@@ -44,41 +54,64 @@
             , MOVIE_STATE
             , LANGUAGE
             , BUDGET
-            , PROFIT
-         FROM MOVIE
-        WHERE MOVIE_ID = #{articleId}
-    </select>
-    
-    <insert id="insertNewMovie" parameterType="com.ktdsuniversity.edu.movie.vo.request.WriteVO">
-       INSERT INTO MOVIE 
-           ( MOVIE_ID
-           , POSTER_URL
-           , TITLE
-           , MOVIE_RATING
-           , OPEN_DATE
-           , OPEN_COUNTRY
-           , RUNNING_TIME
-           , INTRODUCE
-           , SYNOPSIS
-           , ORIGINAL_TITLE
-           , MOVIE_STATE
-           , LANGUAGE
-           , BUDGET
-           , PROFIT)            
-           VALUES
-            ('MV-' || TO_CHAR(SYSDATE, 'YYYYMMDD-') || LPAD(SEQ_MOVIE_PK.NEXTVAL, 6, '0')
-           , #{posterUrl}
-           , #{title}
-           , #{movieRating}
-           , #{openDate}
-           , #{openCountry}
-           , #{runningTime}
-           , #{introduce}
-           , #{synopsis}
-           , #{originalTitle}
-           , #{movieState}
-           , #{language}
-           , #{budget}
-           , #{profit})
+            , PROFIT)            
+       VALUES
+            ( #{id}
+            , 'NULL'
+            , #{title}
+            , #{movieRating}
+            , #{openDate}
+            , #{openCountry}
+            , #{runningTime}
+            , #{introduce}
+            , #{synopsis}
+            , #{originalTitle}
+            , #{movieState}
+            , #{language}
+            , #{budget}
+            , #{profit})
     </insert>
+    
+    <resultMap type="com.ktdsuniversity.edu.movie.vo.MovieVO"
+               id="MovieVOMap"
+               autoMapping="true">
+        <id column="MOVIE_ID" property="movieId"/>
+        
+        <collection property="poster"
+                    ofType="com.ktdsuniversity.edu.poster.vo.PosterVO"
+                    autoMapping="true">
+            <id column="POSTER_NUM" property="posterNum"/> 
+            <id column="POSTER_GROUP_ID" property="posterGroupId"/>                    
+        </collection>
+    </resultMap>
+    
+    <select id="selectMovieById" 
+            resultMap="MovieVOMap"
+            parameterType="string">
+        SELECT M.MOVIE_ID
+             , M.POSTER_URL
+             , M.TITLE
+             , M.MOVIE_RATING
+             , M.OPEN_DATE
+             , M.OPEN_COUNTRY
+             , M.RUNNING_TIME
+             , M.INTRODUCE
+             , M.SYNOPSIS
+             , M.ORIGINAL_TITLE
+             , M.MOVIE_STATE
+             , M.LANGUAGE
+             , M.BUDGET
+             , M.PROFIT
+             , P.POSTER_NUM
+             , P.POSTER_GROUP_ID
+             , P.OBFUSCATE_NAME
+             , P.DISPLAY_NAME
+             , P.EXTEND_NAME
+             , P.POSTER_LENGTH
+             , P.POSTER_PATH
+          FROM MOVIE M
+          LEFT OUTER JOIN POSTER P
+            ON M.MOVIE_ID = P.POSTER_GROUP_ID
+         WHERE M.MOVIE_ID = #{articleId}
+    </select>
 </mapper>

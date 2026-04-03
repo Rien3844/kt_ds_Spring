@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<link rel="stylesheet" type="text/css" href="/css/hello-spring.css">
+<link rel="stylesheet" type="text/css" href="/css/hello-spring.css" enctype="multipart/form-data">
 <title>영화 목록</title>
 </head>
 <body>
@@ -53,22 +53,24 @@
 					<!-- searchResult가 존재하면, 반복하여 데이터를 보여준다. -->
 					<c:forEach items="${searchResult}" var="movie">
 						<tr>
-							<td><a href="/view/${movie.movieId}">${movie.movieId}</a></td>
-							<td>${movie.posterUrl}</td>
+							<td>
+							    <a href="/view/${movie.movieId}">${movie.movieId}</a>
+							</td>
+							    <forEach items="${movie.poster}" var="poster">
+		                            <td>${poster.posterGroupId}/${poster.posterNum}</td>
+		                        </forEach>
 							<td>${movie.title}</td>
 							<td>${movie.movieRating}</td>
 							<td>${movie.openDate}</td>
 							<td>${movie.openCountry}</td>
 							<td>${movie.runningTime}</td>
 							<td>${movie.introduce}</td>
-							<td>
-								<details>
-										<summary>내용 보기</summary>
+							<td><details>
+									<summary>내용 보기</summary>
 									<div class="preview">
 										<p>${movie.synopsis}</p>
 									</div>
-								</details>
-							</td>
+								</details></td>
 							<td>${movie.originalTitle}</td>
 							<td>${movie.movieState}</td>
 							<td>${movie.language}</td>
@@ -86,5 +88,10 @@
 			</c:choose>
 		</tbody>
 	</table>
+	<div class="btn-group">
+		<div class="right-align">
+			<a href="/write">새로운 게시글 작성</a>
+		</div>
+	</div>
 </body>
 </html>

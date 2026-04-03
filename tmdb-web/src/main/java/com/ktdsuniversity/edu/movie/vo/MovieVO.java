@@ -1,5 +1,9 @@
 package com.ktdsuniversity.edu.movie.vo;
 
+import java.util.List;
+
+import com.ktdsuniversity.edu.poster.vo.PosterVO;
+
 public class MovieVO {
 	private String movieId;
 	private String posterUrl;
@@ -13,40 +17,73 @@ public class MovieVO {
 	private String originalTitle;
 	private String movieState;
 	private String language;
-	private int budget;
-	private int profit;
+	private long budget;
+	private long profit;
 	
+	private List<PosterVO> poster;
+	
+	public List<PosterVO> getPoster() {
+		return this.poster;
+	}
+	public void setPoster(List<PosterVO> poster) {
+		this.poster = poster;
+	}
 	public String getMovieId() {
+		if(this.movieId != null) {
+			this.movieId = this.movieId.replace("<", "&lt")
+									   .replace(">", "&gt");
+		}
 		return this.movieId;
 	}
 	public void setMovieId(String movieId) {
 		this.movieId = movieId;
 	}
 	public String getPosterUrl() {
+
+		if(this.posterUrl != null) {
+			this.posterUrl = this.posterUrl.replace("<", "&lt")
+									       .replace(">", "&gt");
+		}
 		return this.posterUrl;
 	}
 	public void setPosterUrl(String posterUrl) {
 		this.posterUrl = posterUrl;
 	}
 	public String getTitle() {
+		if(this.title != null) {
+			this.title = this.title.replace("<", "&lt")
+								   .replace(">", "&gt");
+		}
 		return this.title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	public String getMovieRating() {
+		if(this.movieRating != null) {
+			this.movieRating = this.movieRating.replace("<", "&lt")
+								   			   .replace(">", "&gt");
+		}
 		return this.movieRating;
 	}
 	public void setMovieRating(String movieRating) {
 		this.movieRating = movieRating;
 	}
 	public String getOpenDate() {
+		if(this.openDate != null) {
+			this.openDate = this.openDate.replace("<", "&lt")
+								   		 .replace(">", "&gt");
+		}
 		return this.openDate;
 	}
 	public void setOpenDate(String openDate) {
 		this.openDate = openDate;
 	}
 	public String getOpenCountry() {
+		if(this.openCountry != null) {
+			this.openCountry = this.openCountry.replace("<", "&lt")
+								   		       .replace(">", "&gt");
+		}
 		return this.openCountry;
 	}
 	public void setOpenCountry(String openCountry) {
@@ -59,45 +96,65 @@ public class MovieVO {
 		this.runningTime = runningTime;
 	}
 	public String getIntroduce() {
+		if(this.introduce != null) {
+			this.introduce = this.introduce.replace("<", "&lt")
+								   		   .replace(">", "&gt");
+		}
 		return this.introduce;
 	}
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
 	public String getSynopsis() {
+		if(this.synopsis != null) {
+			this.synopsis = this.synopsis.replace("<", "&lt")
+								   		 .replace(">", "&gt");
+		}
 		return this.synopsis;
 	}
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
 	}
 	public String getOriginalTitle() {
+		if(this.originalTitle != null) {
+			this.originalTitle = this.originalTitle.replace("<", "&lt")
+								   		           .replace(">", "&gt");
+		}
 		return this.originalTitle;
 	}
 	public void setOriginalTitle(String originalTitle) {
 		this.originalTitle = originalTitle;
 	}
 	public String getMovieState() {
+		if(this.movieState != null) {
+			this.movieState = this.movieState.replace("<", "&lt")
+								   		     .replace(">", "&gt");
+		}
 		return this.movieState;
 	}
 	public void setMovieState(String movieState) {
 		this.movieState = movieState;
 	}
 	public String getLanguage() {
+		if(this.language != null) {
+			this.language = this.language.replace("<", "&lt")
+								   		 .replace(">", "&gt");
+		}
 		return this.language;
 	}
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public int getBudget() {
+	public long getBudget() {
 		return this.budget;
 	}
-	public void setBudget(int budget) {
+	public void setBudget(long budget) {
 		this.budget = budget;
 	}
-	public int getProfit() {
+	public long getProfit() {
 		return this.profit;
 	}
-	public void setProfit(int profit) {
+	public void setProfit(long profit) {
 		this.profit = profit;
 	}
 }

@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -14,6 +16,8 @@ import com.ktdsuniversity.edu.movie.service.MovieService;
 import com.ktdsuniversity.edu.movie.vo.MovieVO;
 import com.ktdsuniversity.edu.movie.vo.request.WriteVO;
 import com.ktdsuniversity.edu.movie.vo.response.SearchResultVO;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class MovieController {
@@ -51,7 +55,21 @@ public class MovieController {
 	}
 	
 	@PostMapping("/write")
-	public String doWriteAction(WriteVO writeVO) {
+	public String doWriteAction(@Valid @ModelAttribute WriteVO writeVO,
+								BindingResult bindingResult,
+								Model model) {
+		
+		if(bindingResult.hasErrors()) {
+			System.out.println(bindingResult.getAllErrors());
+			model.addAttribute("inputData", writeVO);
+			return "movie/write";
+		}
+		
+//		String posterUrl = writeVO.getPosterUrl();
+//		posterUrl = posterUrl.replace("<", "&lt;")
+//							 .replace(">", "&gt;");
+//		writeVO.setPosterUrl(posterUrl);
+		
 		System.out.println(writeVO.getPosterUrl());
 		System.out.println(writeVO.getTitle());
 		System.out.println(writeVO.getMovieRating());

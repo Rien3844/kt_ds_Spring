@@ -1,20 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ taglib prefix="form"
+uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="/css/hello-spring.css" />
     <title>영화 등록</title>
+    <link rel="stylesheet" type="text/css" href="/css/hello-spring.css" />
+    <script type="text/javascript" src="/js/jquery-4.0.0.slim.min.js"></script>
+    <script type="text/javascript" src="/js/movie.js"></script>
   </head>
   <body>
     <h1>영화 등록</h1>
-    <form method="post" action="/write">
+    <form:form modelAttribute="writeVO" method="post" action="/write" enctype="multipart/form-data">
       <div class="grid write">
-        <label for="posterUrl">포스터 URL</label>
-        <input id="posterUrl" type="text" name="posterUrl" placeholder="포스터URL을 입력하세요." />
+        <label for="attachPoster">포스터 이미지</label>
+        <div id="attach-image" class="attach-image">
+          <input id="attachPoster" type="file" name="attachPoster" accept="image/*" />
+        </div>
 
         <label for="title">영화 타이틀</label>
-        <input id="title" type="text" name="title" placeholder="영화 제목을 입력하세요." />
+        <div class="input-div">
+          <input id="title" type="text" name="title" placeholder="영화 제목을 입력하세요." value="${inputData.title}" />
+          <form:errors path="title" cssClass="validation-error" element="div" />
+        </div>
 
         <label for="movieRating">관람 등급</label>
         <input id="movieRating" type="text" name="movieRating" placeholder="관람 등급을 입력하세요." />
@@ -32,16 +41,43 @@
         <textarea name="introduce" id="introduce" placeholder="내용을 입력하세요."></textarea>
 
         <label for="synopsis">시놉시스</label>
-        <textarea name="synopsis" id="synopsis" placeholder="내용을 입력하세요."></textarea>
+        <div class="input-div">
+          <input
+            id="synopsis"
+            type="text"
+            name="synopsis"
+            placeholder="줄거리를 입력하세요." 
+            value="${inputData.synopsis}"
+          />
+          <form:errors path="synopsis" cssClass="validation-error" element="div" />
+        </div>
 
         <label for="originalTitle">오리지널타이틀</label>
         <input id="originalTitle" type="text" name="originalTitle" placeholder="오리지널타이틀을 입력하세요." />
 
         <label for="movieState">개봉상태</label>
-        <input id="movieState" type="text" name="movieState" placeholder="개봉상태를 입력하세요." />
+        <div class="input-div">
+          <input
+            id="movieState"
+            type="text"
+            name="movieState"
+            placeholder="개봉상태를 입력하세요.(max 5)"
+            value="${inputData.movieState}"
+          />
+          <form:errors path="movieState" cssClass="validation-error" element="div" />
+        </div>
 
         <label for="language">언어</label>
-        <input id="language" type="text" name="language" placeholder="언어을 입력하세요." />
+        <div class="input-div">
+          <input
+            id="language"
+            type="text"
+            name="language"
+            placeholder="언어을 입력하세요.(max 6)"
+            value="${inputData.language}"
+          />
+          <form:errors path="language" cssClass="validation-error" element="div" />
+        </div>
 
         <label for="budget">쓴돈</label>
         <input id="budget" type="number" name="budget" placeholder="쓴돈을 입력하세요." />
@@ -55,6 +91,6 @@
           </div>
         </div>
       </div>
-    </form>
+    </form:form>
   </body>
 </html>

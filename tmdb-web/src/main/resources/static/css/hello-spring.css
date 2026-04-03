@@ -9,6 +9,14 @@ body {
   color: #333;
 }
 
+div.validation-error {
+  color: hotpink;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding-top: 0.3rem;
+  background-color: lightgoldenrodyellow;
+}
+
 pre {
   margin: 0;
   font-size: 1rem;
@@ -99,46 +107,57 @@ div.list > table.grid > tbody > tr > td:nth-child(2) {
 /* 글쓰기 style 시작 */
 div.update {
   grid-template-columns: 5rem 1fr;
-  grid-template-rows: 1.75rem 1.75rem 20rem 1fr;
+  grid-template-rows: 1.75rem 1.75rem minmax(1.75rem, auto) 20rem 1fr;
   row-gap: 0.625rem;
 }
 
 div.write {
   grid-template-columns: 5rem 1fr;
-  grid-template-rows: 1.75rem 1.75rem 20rem 1fr;
+  grid-template-rows: reapeat(3, minmax(1.75rem, auto)) 20rem 1fr;
+  /* 제목 이메일 첨부파일 내용 버튼 */
   row-gap: 0.625rem;
 }
+
+div.write > div.input-div > input,
+div.write > div.input-div > textarea {
+  width: 100%;
+  display: block;
+}
+
+div.write > div.attach-files,
+div.update > div.attach-files {
+  display: grid; /* 하나의 첨부파일에서 input, button을 만들기위해. */
+  grid-template-columns: 1fr minmax(80px, auto);
+  gap: 0.625rem;
+}
+
+div.update > div.attach-files > .ul.vertical-list {
+  grid-column: 1 / -1;
+}
+
+div.update
+  > div.attach-files
+  > .ul.vertical-list
+  > li
+  > input[type="checkbox"]:checked
+  + a {
+  color: red;
+  text-decoration: line-through;
+}
+
 /* 글쓰기 style 끝 */
 
-/* 회원가입 style 시작 */
-div.regist {
-  grid-template-columns: 7.5rem 1fr;
-  grid-template-rows: repeat(4, minmax(1.75rem, auto)) 1fr;
-  row-gap: 0.625rem;
-  align-items: center;
-}
 
-div.member-update {
-  grid-template-columns: 7.5rem 1fr;
-  grid-template-rows: repeat(4, minmax(1.75rem, auto)) 1fr;
-  row-gap: 0.625rem;
-  align-items: center;
+/* line style 시작 */
+ul.vertical-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
 }
-div.member-view {
-  grid-template-columns: 7.5rem 1fr;
-  grid-template-rows: repeat(4, minmax(1.75rem, auto)) 1fr;
-  row-gap: 0.625rem;
-  align-items: center;
-}
-/* 회원가입 style 끝 */
-
-/* 게시글 내용 조회 style 시작 */
-div.view {
-  grid-template-columns: 7.5rem 1fr;
-  grid-template-rows: repeat(9, minmax(1.75rem, auto));
-  row-gap: 0.625rem;
-}
-/* 게시글 내용 조회 style 끝 */
+/* line style 끝 */
 
 /* 영화 내용 조회 - 시놉시스 style 시작 */
   .preview {

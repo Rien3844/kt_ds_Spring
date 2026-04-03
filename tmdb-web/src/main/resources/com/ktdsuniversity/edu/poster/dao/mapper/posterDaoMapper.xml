@@ -1,0 +1,38 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ktdsuniversity.edu.poster.dao.PosterDao">
+    <insert id="insertAttachPoster"
+            parameterType="com.ktdsuniversity.edu.poster.vo.request.UploadVO">
+        INSERT INTO POSTER 
+         (POSTER_NUM
+        , POSTER_GROUP_ID
+        , OBFUSCATE_NAME
+        , DISPLAY_NAME
+        , EXTEND_NAME
+        , POSTER_LENGTH
+        , POSTER_PATH) 
+        VALUES
+         (#{posterNum}
+        , #{posterGroupId}
+        , #{obfuscateName}
+        , #{displayName}
+        , #{extendName}
+        , #{posterLength}
+        , #{posterPath})
+    </insert>
+    
+    <select id="selectPosterByGroupIdAndPosterNum"
+            parameterType="com.ktdsuniversity.edu.poster.vo.request.SearchPosterVO"
+            resultType="com.ktdsuniversity.edu.poster.vo.response.DownloadVO">
+        SELECT DISPLAY_NAME
+             , EXTEND_NAME
+             , POSTER_LENGTH
+             , POSTER_PATH
+          FROM POSTER
+         WHERE POSTER_GROUP_ID = #{posterGroupId}
+           AND POSTER_NUM = #{posterNum}
+           <!-- waning -->
+    </select>
+</mapper>

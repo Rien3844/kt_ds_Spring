@@ -1,20 +1,60 @@
 package com.ktdsuniversity.edu.movie.vo.request;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class WriteVO {
+	
+	private String id;//
+	
+	private List<MultipartFile> attachPoster;
+	
 	private String posterUrl;
+	
+	@NotEmpty(message = "영화 제목을 작성해주세요.")
 	private String title;
+	
 	private String movieRating;
 	private String openDate;
 	private String openCountry;
-	private int runningTime;
-	private String introduce;
-	private String synopsis;
-	private String originalTitle;
-	private String movieState;
-	private String language;
-	private int budget;
-	private int profit;
 	
+	private int runningTime;
+	
+	private String introduce;
+	
+	@NotEmpty(message = "시놉시스를 작성해주세요.")
+	private String synopsis;
+	
+	private String originalTitle;
+	
+	@NotEmpty
+	@Size(min = 0, max = 5, message = "개봉 상태를 5글자 이하로 작성해주세요.")
+	private String movieState;
+	
+	@NotEmpty
+	@Size(min = 0, max = 6, message = "영화의 원어를 작성해주세요. 최대 6글자입니다.")
+	private String language;
+
+	private long budget;
+
+	private long profit;
+	
+	public String getId() {
+		return this.id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public List<MultipartFile> getAttachPoster() {
+		return this.attachPoster;
+	}
+	public void setAttachPoster(List<MultipartFile> attachPoster) {
+		this.attachPoster = attachPoster;
+	}
 	public String getPosterUrl() {
 		return this.posterUrl;
 	}
@@ -81,16 +121,17 @@ public class WriteVO {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public int getBudget() {
+	public long getBudget() {
 		return this.budget;
 	}
-	public void setBudget(int budget) {
+	public void setBudget(long budget) {
 		this.budget = budget;
 	}
-	public int getProfit() {
+	public long getProfit() {
 		return this.profit;
 	}
-	public void setProfit(int profit) {
+	public void setProfit(long profit) {
 		this.profit = profit;
 	}
+
 }
