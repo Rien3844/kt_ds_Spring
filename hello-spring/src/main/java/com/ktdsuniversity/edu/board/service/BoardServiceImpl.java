@@ -17,6 +17,9 @@ import com.ktdsuniversity.edu.board.vo.response.SearchResultVO;
 import com.ktdsuniversity.edu.files.dao.FilesDao;
 import com.ktdsuniversity.edu.files.utils.MultipartFileHandler;
 import com.ktdsuniversity.edu.files.vo.request.UploadVO;
+import com.ktdsuniversity.edu.members.helpers.SHA256Util;
+import com.ktdsuniversity.edu.members.vo.MembersVO;
+import com.ktdsuniversity.edu.members.vo.request.RegistVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -53,6 +56,11 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean createNewBoard(WriteVO writeVO) {
+		// 첨부파일업로드
+		List<MultipartFile> attachFiles = writeVO.getAttachFile();
+		String fileGroupId = this.multipartFileHandler.upload(attachFiles);
+		writeVO.setFileGroupId(fileGroupId);
+
 		// dao => insert 요청
 		// mybatis 는 insert, update, delete를 수행했을 때
 		// 영향을 받은 row의 수를 반환시킨다.
@@ -60,10 +68,6 @@ public class BoardServiceImpl implements BoardService {
 		// update ==> update 된 row의 개수 반환.
 		// delete ==> delete 된 row의 개수 반환.
 		int insertCount = this.boardDao.insertNewBoard(writeVO);
-
-		// 첨부파일업로드
-		List<MultipartFile> attachFiles = writeVO.getAttachFile();
-		this.multipartFileHandler.upload(attachFiles, writeVO.getId());
 
 		System.out.println("생성된 게시글의 개수? : " + insertCount);
 		return insertCount > 0;
@@ -114,7 +118,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean updateBoardByArticleId(UpdateVO updateVO) {
-		int updateCount = this.boardDao.updateBoardById(updateVO);
 
 		// 선택한 파일들만 삭제.
 		if (updateVO.getDeleteFileNum() != null && updateVO.getDeleteFileNum().size() > 0) {
@@ -131,8 +134,18 @@ public class BoardServiceImpl implements BoardService {
 		}
 
 		List<MultipartFile> attachFiles = updateVO.getAttachFile();
-		multipartFileHandler.upload(attachFiles, updateVO.getId());
+		
+		String fileGroupId = updateVO.getFileGroupId();
+		
+		if(fileGroupId == null || fileGroupId.length() == 0) {
+			fileGroupId = this.multipartFileHandler.upload(attachFiles);
+			updateVO.setFileGroupId(fileGroupId);
+		}else {
+			this.multipartFileHandler.upload(attachFiles, updateVO.getFileGroupId());	
+		}
 
+		int updateCount = this.boardDao.updateBoardById(updateVO);
+		
 		return updateCount == 1;
 	}
 

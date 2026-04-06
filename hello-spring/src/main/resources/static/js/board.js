@@ -40,7 +40,7 @@ $().ready(function () {
 
     // 하나라도 안될때
     var subject = $("#subject").val();
-    if (!subject.length < 3) {
+    if (subject.length < 3) {
       var subjectErrorMessage = $("<div>");
       subjectErrorMessage.addClass("validation-error");
       subjectErrorMessage.text("제목은 3글자 이상이어야합니다.");

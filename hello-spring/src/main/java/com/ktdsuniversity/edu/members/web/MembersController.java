@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ktdsuniversity.edu.members.service.MembersService;
 import com.ktdsuniversity.edu.members.vo.MembersVO;
+import com.ktdsuniversity.edu.members.vo.request.LoginVO;
 import com.ktdsuniversity.edu.members.vo.request.RegistVO;
 import com.ktdsuniversity.edu.members.vo.request.UpdateVO;
 import com.ktdsuniversity.edu.members.vo.response.DuplicateResultVO;
 import com.ktdsuniversity.edu.members.vo.response.SearchResultVO;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -118,12 +121,34 @@ public class MembersController {
 		return "redirect:/members/list";
 	}
 	
-	// /member ==> 회원들의 목록이 조회되도록 코드를 작성.
-	// ==> 회원 목록 조회.
-	// ==> members.list.jsp : 회원 목록 반복.
-	//						  + 회원의 수 출력.
-	//						  + 회원의 수 없을때는 "등록된 회원이 없습니다."출력.
-	//						  + 목록의 아래에는 "새로운 회원 등록" 링크 추가.
+	@GetMapping("/login")
+	public String viewLoginPage() {
+		return "members/login";
+	}
+	
+	@PostMapping("/login")
+	public String doLoginAction(@Valid @ModelAttribute LoginVO loginVO, BindingResult bindingResult, Model model, HttpServletRequest request) {
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("loginData", loginVO);
+			return "members/login";
+		}
+		
+		String userIp = request.getRemoteAddr();
+		loginVO.setIp(userIp);
+		
+		MembersVO member = this.membersService.findMemberByEmailAndPassword(loginVO);
+		
+		// 서버의 세션을 삭제한다.
+		// 내 정보를 더이상 기억하지 마라 ==> 로그아웃
+		request.getSession().invalidate(); 
+		
+		// request.getSession(); <== HttpRequestHeader로 전달된 JSESSIONID의 객체를 반환.
+		// request.getSession(true); <== 기존 JSESSIONID로 발급된 세션 객체는 버리고, 새로운 ID의 세션 객체를 생성 후 반환.
+		HttpSession session = request.getSession(true); // 세션을 새롭게 만들어라.
+		session.setAttribute("__Login_DATA__", member);
+		
+		return "redirect:/";
+	}
 }
 
 	

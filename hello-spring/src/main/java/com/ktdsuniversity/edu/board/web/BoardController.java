@@ -17,70 +17,85 @@ import com.ktdsuniversity.edu.board.vo.BoardVO;
 import com.ktdsuniversity.edu.board.vo.request.UpdateVO;
 import com.ktdsuniversity.edu.board.vo.request.WriteVO;
 import com.ktdsuniversity.edu.board.vo.response.SearchResultVO;
+import com.ktdsuniversity.edu.members.vo.MembersVO;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
 public class BoardController {
-	
+
 	// 빈(bean) 컨테이너에 들어있는 객체 중 타입이 일치하는 객체를 할당 받는다.
 	@Autowired
 	private BoardService boardService;
-	
+
 	@GetMapping("/")
 	public String viewListPage(Model model) {
-		
+
 		SearchResultVO searchResult = this.boardService.findAllBoard();
-		
+
 		// 게시글의 목록을 조회.
 		List<BoardVO> list = searchResult.getResult();
 		// 게시글의 개수 조회.
 		int searchCount = searchResult.getCount();
-		
+
 		model.addAttribute("searchResult", list);
 		model.addAttribute("searchCount", searchCount);
-		
+
 		return "board/list";
 	}
-	
+
 	// 게시글 등록 화면 보여주는 EndPoint
 	@GetMapping("/write")
 	public String viewWritePage() {
 		return "board/write";
 	}
-	
+
 	@PostMapping("/write")
-	public String doWriteAction
-	(/*@ModelAttribute 생략가능*/@Valid WriteVO writeVO,
-	 // @Valid 사용 시 SpringBoot4 기준으로는 여전히 @ModelAttribute 생략가능.
-	 // 하지만 이전버전에선 생략 불가능하므로 @Vaild를 사용할때는 "항상" @ModelAttribute 작성을 권장.
-							  // @Vaild의 결과를 받아오는 파라미터.
-							  // 반드시 @Vaild 파라미터 이후에 작성!
-							  BindingResult bindingResult,
-							  Model model) {
-		
+	public String doWriteAction(/* @ModelAttribute 생략가능 */@Valid WriteVO writeVO,
+			// @Valid 사용 시 SpringBoot4 기준으로는 여전히 @ModelAttribute 생략가능.
+			// 하지만 이전버전에선 생략 불가능하므로 @Vaild를 사용할때는 "항상" @ModelAttribute 작성을 권장.
+			// @Vaild의 결과를 받아오는 파라미터.
+			// 반드시 @Vaild 파라미터 이후에 작성!
+			BindingResult bindingResult, Model model, HttpServletRequest request) {
+
 		// 사용자의 입력값을 검증 했을 때, 에러가 있다면
-		if(bindingResult.hasErrors()) {
+		if (bindingResult.hasErrors()) {
 			// 브라우저에게 "board/write" 페이지를 보여주도록 하고,
-			// 해당 페이즈에 사용자가 입력한 값을 전달한다.	
+			// 해당 페이즈에 사용자가 입력한 값을 전달한다.
 			model.addAttribute("inputData", writeVO);
 			return "board/write";
 		}
-		
+
+		// 로그인 데이터(__LOGIN_DATA__)에서 로그인 한 사용자의 이메일을 가져온다.
+		HttpSession session = request.getSession(); // 쿠키로 전달된 사용자의 세션 정보를 가지고와라.
+
+		// MembersController에서 __LOGIN_DATA__를 MembersVO로 저장함. ==> 가져올떄도 MembersVO로 가져옴.
+		// getAttribute는 Object타입이므로 (MembersVO)로 캐스팅해준다.
+		MembersVO loginMember = (MembersVO) session.getAttribute("__LOGIN_DATA__");
+		writeVO.setEmail(loginMember.getEmail());
+
 		System.out.println(writeVO.getSubject());
 		System.out.println(writeVO.getEmail());
 		System.out.println(writeVO.getContent());
-		
-		// create, update, delete => 성공, 실패 여부 반환.
-		boolean createResult = this.boardService.createNewBoard(writeVO);
-		
-		System.out.println("게시글 생성 성공? " + createResult);
-		
-		// redirect: 브라우저에게 다음 End Point를 요청하도록 지시.
-		// redirect:/ ==> 브라우저에게 "/" endPoint로 이동하도록 지시.
-		return "redirect:/";
+
+		// 1.
+		/* TODO 로그인을 안한 상태에서 글쓰기 페이지로 접근하면 "/list"로 이동 하도록 한다. */
+		if (writeVO.getEmail() == loginMember.getEmail()) {
+			return "redirect:/list";
+		} else {
+			// create, update, delete => 성공, 실패 여부 반환.
+			boolean createResult = this.boardService.createNewBoard(writeVO);
+
+			System.out.println("게시글 생성 성공? " + createResult);
+
+			// redirect: 브라우저에게 다음 End Point를 요청하도록 지시.
+			// redirect:/ ==> 브라우저에게 "/" endPoint로 이동하도록 지시.
+			return "redirect:/";
+		}
 	}
-	
+
 	// 게시글 내용 조회.
 	// endpoint ==> /view/게시글ID
 	// ex) /view/BO-20260327-000001
@@ -88,45 +103,42 @@ public class BoardController {
 	// 1. 게시글 내용을 조회해서 브라우저에게 노출.
 	// 2. 조회수가 1증가.
 	// url을 치거나 클릭했다 ==> 무조건 Get
-	@GetMapping("/view/{articleId}")//articalId에 게시글 ID 할당
-	public String viewDetailPage(Model model, 
-			@PathVariable String articleId) {
-		
+	@GetMapping("/view/{articleId}") // articalId에 게시글 ID 할당
+	public String viewDetailPage(Model model, @PathVariable String articleId) {
+
 		// articleId로 데이터베이스에서 게시글을 조회한다.
 		// 조회 = Dao에서 진행되지만, Controller에서 바로 넘어가지 않고 Service를 거쳐간다 ==> 트랜잭션 처리를 위해.
 		// 조회 시 조회수가 하나 증가해야 한다.
 		BoardVO findResult = this.boardService.findBoardByArticleId(articleId, ReadType.VIEW);
-		
+
 		model.addAttribute("article", findResult);
-		
+
 		return "board/view";
 	}
-	
+
 	@GetMapping("/delete")
-	public String doDeleteAction
-	  (@RequestParam String id ) {
-		
+	public String doDeleteAction(@RequestParam String id) {
+
 		boolean deleteResult = this.boardService.deleteBoardByArticleId(id);
 		System.out.println("게시글 삭제 성공 ? " + deleteResult);
-		
+
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("/update/{articleId}")
 	public String viewUpdatePage(@PathVariable String articleId, Model model) {
 		BoardVO data = this.boardService.findBoardByArticleId(articleId, ReadType.UPDATE);
 		model.addAttribute("article", data);
 		return "board/update";
 	}
-	
+
 	@PostMapping("/update/{articleId}")
-	public String doUpdateAction(@PathVariable String articleId,
-			UpdateVO updateVO) {
+	public String doUpdateAction(@PathVariable String articleId, UpdateVO updateVO) {
 		updateVO.setId(articleId);
-		
+
 		boolean updateResult = this.boardService.updateBoardByArticleId(updateVO);
 		System.out.println("수정 성공? " + updateResult);
-		
+
 		return "redirect:/view/" + articleId;
 	}
 }

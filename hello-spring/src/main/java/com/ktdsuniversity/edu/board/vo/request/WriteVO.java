@@ -21,17 +21,16 @@ public class WriteVO {
 	
 	private String id;
 	
-//	@NotEmpty(message = "제목을 반드시 입력해주세요.")
 	@Size(min = 3, message = "제목은 3글자 이상이어야합니다.")
 	private String subject;
-	
-	@NotEmpty(message = "이메일 형태가 아닙니다.")
-	@Email(message = "이메일 형태가 아닙니다.")
+
 	private String email;
 	
 	private String content;
 	
 	private List<MultipartFile> attachFile;
+	
+	private String fileGroupId;
 
 	public String getId() {
 		return this.id;
@@ -63,5 +62,11 @@ public class WriteVO {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getFileGroupId() {
+		return this.fileGroupId;
+	}
+	public void setFileGroupId(String fileGroupId) {
+		this.fileGroupId = fileGroupId;
 	}
 }

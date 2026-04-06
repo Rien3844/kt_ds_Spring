@@ -14,6 +14,7 @@ public class BoardVO {
 	private String mdfyDt;
 	private String fileName;
 	private String originFileName;
+	private String fileGroupId;
 	
 	private List<FilesVO> files; // 하나의 게시글(BoardVO)은 여러개의 파일(FilesVO)를 가질 수 있다. ==> BoardVO has a FilesVO
 	
@@ -77,5 +78,11 @@ public class BoardVO {
 	}
 	public void setOriginFileName(String originFileName) {
 		this.originFileName = originFileName;
+	}
+	public String getFileGroupId() {
+		return this.fileGroupId;
+	}
+	public void setFileGroupId(String fileGroupId) {
+		this.fileGroupId = fileGroupId;
 	}
 }

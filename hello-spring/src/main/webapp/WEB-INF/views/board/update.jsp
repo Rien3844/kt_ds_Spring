@@ -14,6 +14,8 @@ pageEncoding="UTF-8"%>
     <h1>게시글 수정</h1>
     <!-- action ==> form 내부의 value를 전송할 엔드포인트 -->
     <form method="post" action="/update/${article.id}" enctype="multipart/form-data">
+      <input type="hidden" name="fileGroupId" value="${article.fileGroupId}"/>
+      
       <div class="grid update">
         <label for="subject">제목</label>
         <input
