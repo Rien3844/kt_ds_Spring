@@ -7,6 +7,4 @@ public interface FilesService {
 
 	DownloadVO findAttachFile(SearchFileVO searchFileVO);
 
-//	boolean uploadFilesByArticleId(String articleId);
-
 }

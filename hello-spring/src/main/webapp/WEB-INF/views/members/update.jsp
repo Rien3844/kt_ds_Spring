@@ -1,16 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>회원 정보 수정</title>
-    <link rel="stylesheet" type="text/css" href="/css/hello-spring.css" />
-  </head>
-  <body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+  <jsp:include page="/WEB-INF/views/templates/header.jsp">
+    <jsp:param value="회원 정보 수정" name="title" />
+  </jsp:include>
     <h1>회원 정보 수정</h1>
-    <!-- action ==> form 내부의 value를 전송할 엔드포인트 -->
+    <%-- action ==> form 내부의 value를 전송할 엔드포인트 --%>
     <form method="post" action="/member/update/${member.email}">
+    <sec:csrfInput/>
       <div class="grid member-update">
         <label for="email">이메일</label>
         <input
@@ -46,5 +43,4 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
     </form>
-  </body>
-</html>
+  <jsp:include page="/WEB-INF/views/templates/footer.jsp"></jsp:include>

@@ -3,20 +3,7 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ktdsuniversity.edu.members.dao.MembersDao">
-    <select id="selectMemberCount"
-            resultType="_int">
-       SELECT COUNT(EMAIL)
-         FROM MEMBERS
-    </select>
-    
-    <select id="selectMemberList"
-            resultType="com.ktdsuniversity.edu.members.vo.MembersVO">
-       SELECT EMAIL
-            , NAME
-            , PASSWORD
-         FROM MEMBERS
-    </select>
-    
+
     <insert id="insertNewMember"
             parameterType="com.ktdsuniversity.edu.members.vo.request.RegistVO">
         INSERT INTO MEMBERS
@@ -72,23 +59,38 @@
           FROM MEMBERS
          WHERE EMAIL = #{_parameter}
     </delete>
+    
+    <select id="selectMembersCount" resultType="_int">
+        SELECT COUNT(EMAIL)
+          FROM MEMBERS
+    </select>
 
-    <update id="updateIncreaseLoginFailCount" parameterType="string">
+    <select id="selectMembersList" resultType="com.ktdsuniversity.edu.members.vo.MembersVO">
+        SELECT EMAIL
+             , NAME
+             , PASSWORD
+          FROM MEMBERS
+         ORDER BY EMAIL ASC
+    </select>
+    
+    <update id="updateIncreaseLoginFailCount" 
+            parameterType="string">
         UPDATE MEMBERS
            SET LOGIN_FAIL_COUNT = LOGIN_FAIL_COUNT + 1
              , LATEST_LOGIN_FAIL_DATE = SYSDATE
-         WHERE EMAIL = #{_parameter}
+         WHERE EMAIL = #{_parameter} 
     </update>
 
-    <update id="updateBlock" parameterType="string"> 
+    <update id="updateBlock" 
+            parameterType="string">
         UPDATE MEMBERS
            SET BLOCK_YN = 'Y'
-             , LOGIN_DATE = SYSDATE
          WHERE EMAIL = #{_parameter}
            AND LOGIN_FAIL_COUNT >= 5
     </update>
 
-    <update id="updateSuccessLogin" parameterType="com.ktdsuniversity.edu.members.vo.request.LoginVO">
+    <update id="updateSuccessLogin" 
+            parameterType="com.ktdsuniversity.edu.members.vo.request.LoginVO">
         UPDATE MEMBERS
            SET LOGIN_FAIL_COUNT = 0
              , LATEST_LOGIN_IP = #{ip}
@@ -96,5 +98,15 @@
              , BLOCK_YN = 'N'
          WHERE EMAIL = #{email}
     </update>
-
+    
+    <select id="selectMemberRolesByEmail"
+            parameterType="string"
+            resultType="string">
+         SELECT ROLE_ID
+           FROM ROLES
+          START WITH ROLE_ID = (SELECT ROLE_ID
+                                  FROM MEMBERS
+                                 WHERE EMAIL = #{_parameter})
+        CONNECT BY PRIOR ROLE_ID = TOP_ROLE_ID
+    </select>
 </mapper>

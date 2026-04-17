@@ -1,0 +1,33 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.ktdsuniversity.edu.producer.dao.ProducerDao">
+    <select id="selectProducerCount"
+            resultType="_int">
+       SELECT COUNT(p.PRODUCER_ID)
+         FROM PRODUCER p
+    </select>
+    
+    <select id="selectProducerList"
+            resultType="com.ktdsuniversity.edu.producer.vo.ProducerVO">
+       SELECT p.PRODUCER_ID
+            , p.PRODUCER_NAME
+         FROM PRODUCER p
+    </select>
+    
+    <insert id="insertNewProducer"
+            parameterType="com.ktdsuniversity.edu.producer.vo.request.WriteVO">
+       <selectKey order="BEFORE"
+                  resultType="string"
+                  keyProperty="id">
+          SELECT 'PD-' || TO_CHAR(SYSDATE, 'YYYYMMDD-') || LPAD(SEQ_PRODUCER_PK.NEXTVAL, 6, '0')
+            FROM DUAL
+       </selectKey>
+       INSERT INTO PRODUCER
+            ( PRODUCER_ID
+            , PRODUCER_NAME)
+       VALUES
+            ( #{id}
+            , #{name})
+    </insert>
+</mapper>

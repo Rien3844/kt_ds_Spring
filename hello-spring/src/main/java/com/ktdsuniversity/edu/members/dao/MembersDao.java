@@ -20,13 +20,15 @@ public interface MembersDao {
 
 	int deleteMemberByEmail(String email);
 
-	int selectMemberCount();
-	
-	List<MembersVO> selectMemberList();
+	int selectMembersCount();
+
+	List<MembersVO> selectMembersList();
 
 	int updateIncreaseLoginFailCount(String email);
 
 	int updateBlock(String email);
-	
+
 	int updateSuccessLogin(LoginVO loginVO);
+
+	List<String> selectMemberRolesByEmail(String email);
 }

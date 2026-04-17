@@ -32,6 +32,12 @@ public class MovieController {
 		
 		List<MovieVO> list = searchResult.getMovieList();
 		
+		list.forEach(movie -> {
+			movie.getPoster().forEach(poster -> {
+				System.out.println("포스터: " + poster.getPosterPath());
+			});
+		});
+		
 		int searchCount = searchResult.getMovieCount();
 		
 		model.addAttribute("searchResult", list);

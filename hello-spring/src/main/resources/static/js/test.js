@@ -1,3 +1,3 @@
 $().ready(function () {
-  alert("!");
+  alert("VSCoㄹㅁㄴㄹㅇㄴㄹde로 ㅁㄹㅁㄴㅇㄹㄴㅇ편집함11111111!");
 });

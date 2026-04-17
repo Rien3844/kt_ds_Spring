@@ -1,12 +1,14 @@
 package com.ktdsuniversity.edu.members.vo;
 
+import java.util.List;
+
 public class MembersVO {
 
 	private String email;
 	private String name;
 	private String password;
-	private String salt;
 
+	private String salt;
 	private String registDate;
 	private String modifyDate;
 	private String latestPasswordChangeDate;
@@ -16,7 +18,9 @@ public class MembersVO {
 	private String latestLoginFailDate;
 	private String blockYn;
 	private String fileGroupId;
-
+	
+	private List<String> roles;
+	
 	public String getEmail() {
 		return this.email;
 	}
@@ -119,6 +123,14 @@ public class MembersVO {
 
 	public void setFileGroupId(String fileGroupId) {
 		this.fileGroupId = fileGroupId;
+	}
+
+	public List<String> getRoles() {
+		return this.roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 
 }

@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url("/image/bonobono.png"); /* static/image/bg.png 파일 */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.regist-div {
+  background-color: white;
+  width: 25rem;
+  height: 36rem;
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+
+.regist-div > h1 {
+  padding-left: 5rem;
+}
+
+.regist-div > form > .grid {
+  padding-left: 1.5rem;
+}
+
+.regist-div > form > .grid > .input-div {
+  margin-bottom: 0.5rem;
+}
+
+.regist-div > form > .grid > .input-div > input {
+  width: 75%;
+  height: 1.5rem;
+  border-radius: 5px;
+}
+
+.label-group {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 라벨과 에러 메시지 사이 간격 */
+}
+
+.regist-div > form > .grid > .btn-group > input {
+  display: flex;
+  justify-content: center;
+  margin-right: 1.5rem;
+  margin-top: 4.5rem;
+  width: 21.875rem;
+  height: 3.125rem;
+  background-color: lightblue;
+  font-size: 1.25rem;
+  border-radius: 15px;
+  border: 2px solid #ccc;
+  /* transition: border-color 0.3s ease; */
+}
+.regist-div > form > .grid > .btn-group > input:hover {
+  border-color: black;
+}
+
+div.validation-error {
+  color: hotpink;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding-top: 0.3rem;
+  background-color: lightgoldenrodyellow;
+  width: 95%;
+}
+
+#show-password {
+  margin-top: 1rem;
+}
+
+.regist-div > form > div > label[for="email"],
+.regist-div > form > div > label[for="name"],
+.regist-div > form > div > label[for="password"],
+.regist-div > form > div > label[for="confirm-password"] {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.regist-div > form > div > label[for="show-password"] {
+  font-size: 12px;
+  color: gray;
+}

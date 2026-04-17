@@ -6,8 +6,6 @@ import com.ktdsuniversity.edu.members.vo.request.RegistVO;
 import com.ktdsuniversity.edu.members.vo.request.UpdateVO;
 import com.ktdsuniversity.edu.members.vo.response.SearchResultVO;
 
-import jakarta.validation.Valid;
-
 public interface MembersService {
 
 	boolean createNewMember(RegistVO registVO);
@@ -18,8 +16,6 @@ public interface MembersService {
 
 	boolean deleteMemberByEmail(String email);
 
-	SearchResultVO findAllMember();
-
-	MembersVO findMemberByEmailAndPassword(@Valid LoginVO loginVO);
+	SearchResultVO findMembersList();
 
 }

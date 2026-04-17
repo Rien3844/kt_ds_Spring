@@ -57,7 +57,9 @@
 							    <a href="/view/${movie.movieId}">${movie.movieId}</a>
 							</td>
 							    <forEach items="${movie.poster}" var="poster">
-		                            <td>${poster.posterGroupId}/${poster.posterNum}</td>
+		                            <td>
+		                              <a>${poster.displayName}</a>
+		                            </td>
 		                        </forEach>
 							<td>${movie.title}</td>
 							<td>${movie.movieRating}</td>
